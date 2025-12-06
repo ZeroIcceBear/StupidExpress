@@ -48,10 +48,6 @@ public class LighterItem extends Item {
 
             GameFunctions.stopGame(serverLevel);
         } else {
-            for (ServerPlayer doused : dousedPlayers) {
-                GameFunctions.killPlayer(doused, true, player, StupidExpress.id("ignited"));
-                DousedPlayerComponent.KEY.get(doused).reset();
-            }
             GameFunctions.killPlayer(player, true, player, StupidExpress.id("failed_ignite"));
         }
         return InteractionResultHolder.pass(player.getItemInHand(interactionHand));

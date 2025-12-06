@@ -4,7 +4,6 @@
   "package": "pro.fazeclan.river.stupid_express.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "arsonist.ArsonistKeepAliveMixin",
     "neutral.NeutralGameFunctionsMixin",
     "neutral.NeutralRoundEndMixin"
   ],

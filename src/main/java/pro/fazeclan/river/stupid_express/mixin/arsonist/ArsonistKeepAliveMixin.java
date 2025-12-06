@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import pro.fazeclan.river.stupid_express.StupidExpress;
 
+// disabled for now, though I do want to keep the code
 @Mixin(MurderGameMode.class)
 public class ArsonistKeepAliveMixin {
 

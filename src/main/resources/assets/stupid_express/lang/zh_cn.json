@@ -1,0 +1,35 @@
+{
+  "announcement.goals.amnesiac": "从尸体上偷取一个身份并扮演该角色！",
+  "announcement.role.amnesiac": "间谍！",
+  "announcement.win.amnesiac": "间谍胜利！",
+  "hud.amnesiac.select_body": "与其互动以偷取其身份！",
+
+  "announcement.goals.arsonist": "将所有玩家浇湿后点燃以获胜！",
+  "announcement.role.arsonist": "纵火犯！",
+  "announcement.win.arsonist": "纵火犯胜利！",
+  "game.win.arsonist": "纵火犯已将所有玩家浇湿并点燃了列车！",
+  "hud.arsonist.doused.true": "已浇湿",
+  "hud.arsonist.doused.false": "未浇湿",
+  "item.stupid_express.jerry_can": "汽油桶",
+  "item.stupid_express.lighter": "打火机",
+  "death_reason.stupid_express.failed_ignite": "点火失败。",
+  "death_reason.stupid_express.ignited": "汽油燃烧而死。",
+
+  "announcement.goals.necromancer": "复活死者，让他们为你效力！",
+  "announcement.role.necromancer": "死灵法师！",
+  "announcement.win.necromancer": "死灵法师胜利！",
+  "hud.necromancer.possible_revive": "与其互动可将此玩家复活为杀手！",
+  "hud.necromancer.no_possible_revive": "在使用能力之前，你的同伴必须死亡！",
+  "hud.necromancer.cooldown": "你必须等待 %ss 后才能尝试。",
+
+  "announcement.goals.avaricious": "接近受害者以获取财富！",
+  "announcement.role.avaricious": "扒手！",
+
+  "announcement.win.lovers": "恋人胜利！",
+  "game.win.lovers": "这对恋人一直活到最后！",
+  "tip.lovers.partner": "你的伴侣是 %s！",
+  "hud.lovers.partner": "伴侣",
+  "hud.lovers.in_love": "爱上了 %s！",
+  "hud.lovers.notification": "你爱上了列车上的某人！",
+  "death_reason.stupid_express.broken_heart": "殉情而亡。"
+}

@@ -21,7 +21,7 @@ public class NecromancerStatsMixin {
     )
     private static void stupidexpress$addKillStat(Player victim, boolean spawnBody, Player killer, ResourceLocation deathReason, CallbackInfo ci) {
 
-        var component = GameWorldComponent.KEY.get(killer.level());
+        var component = GameWorldComponent.KEY.get(victim.level());
         if (component.canUseKillerFeatures(victim)) {
             var nc = NecromancerComponent.KEY.get(victim.level());
             nc.increaseAvailableRevives();

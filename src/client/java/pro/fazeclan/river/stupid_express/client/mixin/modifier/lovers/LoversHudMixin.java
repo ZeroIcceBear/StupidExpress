@@ -57,6 +57,10 @@ public abstract class LoversHudMixin {
         if (!component.isLover()) {
             return;
         }
+        var lover = Minecraft.getInstance().level.getPlayerByUUID(component.getLover());
+        if (lover == null) {
+            return;
+        }
         if (TMMClient.isPlayerSpectatingOrCreative()) {
             context.pose().pushPose();
             context.pose().translate(context.guiWidth() / 2.0f, context.guiHeight() / 2.0f - 35.0f, 0.0f);
@@ -64,7 +68,7 @@ public abstract class LoversHudMixin {
 
             Component name = Component.translatable(
                     "hud.lovers.in_love",
-                    Minecraft.getInstance().level.getPlayerByUUID(component.getLover()).getName()
+                    lover.getName()
             );
             context.drawString(
                     renderer,

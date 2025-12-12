@@ -1,6 +1,7 @@
 package pro.fazeclan.river.stupid_express.mixin.modifier.lovers;
 
 import dev.doctor4t.trainmurdermystery.cca.GameWorldComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import org.agmas.harpymodloader.config.HarpyModLoaderConfig;
@@ -9,6 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import pro.fazeclan.river.stupid_express.StupidExpress;
 import pro.fazeclan.river.stupid_express.modifier.lovers.cca.LoversComponent;
 
 import java.util.List;
@@ -43,6 +45,21 @@ public class LoversSelectionMixin {
         loverComponentOne.sync();
         loverComponentTwo.setLover(loverOne.getUUID());
         loverComponentTwo.sync();
+
+        loverOne.sendSystemMessage(
+                Component.translatable(
+                        "hud.lovers.notification",
+                        loverTwo.getName()
+                ).withColor(StupidExpress.LOVERS_COLOR),
+                true
+        );
+        loverTwo.sendSystemMessage(
+                Component.translatable(
+                        "hud.lovers.notification",
+                        loverOne.getName()
+                ).withColor(StupidExpress.LOVERS_COLOR),
+                true
+        );
 
     }
 

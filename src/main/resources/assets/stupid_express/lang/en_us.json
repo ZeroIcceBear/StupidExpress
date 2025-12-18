@@ -31,5 +31,10 @@
   "hud.lovers.partner": "Partner",
   "hud.lovers.in_love": "In love with %s!",
   "hud.lovers.notification": "You are in love with someone on the train!",
-  "death_reason.stupid_express.broken_heart": "a broken heart."
+  "death_reason.stupid_express.broken_heart": "a broken heart.",
+
+  "hud.allergic.hint": "Allergic",
+  "hud.allergic.notification": "Your medical history highlights multiple allergies.",
+  "death_reason.stupid_express.allergies": "mysterious allergies.",
+  "hud.allergic.doctor_heads_up": "Someone on the train may have allergic reactions- stay close!"
 }

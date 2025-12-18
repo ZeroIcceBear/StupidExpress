@@ -4,6 +4,8 @@ import dev.doctor4t.trainmurdermystery.api.Role;
 import dev.doctor4t.trainmurdermystery.api.TMMRoles;
 import dev.doctor4t.trainmurdermystery.cca.GameWorldComponent;
 import dev.doctor4t.trainmurdermystery.client.gui.RoleAnnouncementTexts;
+import dev.doctor4t.trainmurdermystery.event.AllowPlayerDeath;
+import dev.doctor4t.trainmurdermystery.index.TMMSounds;
 import dev.doctor4t.trainmurdermystery.util.AnnounceWelcomePayload;
 import lombok.Getter;
 import net.fabricmc.api.ModInitializer;
@@ -11,10 +13,12 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import org.agmas.harpymodloader.Harpymodloader;
 import org.agmas.harpymodloader.events.ModdedRoleAssigned;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pro.fazeclan.river.stupid_express.modifier.allergic.cca.AllergicComponent;
 import pro.fazeclan.river.stupid_express.role.amnesiac.RoleSelectionHandler;
 import pro.fazeclan.river.stupid_express.role.arsonist.ArsonistItemGivingHandler;
 import pro.fazeclan.river.stupid_express.role.arsonist.OilDousingHandler;
@@ -94,6 +98,20 @@ public class StupidExpress implements ModInitializer {
             true
     ));
 
+    public static int ALLERGIC_COLOR = 0x70ffa2;
+
+    public static ResourceLocation ALLERGIC_ID = id("allergic");
+
+    public static Role ALLERGIC = registerRole(new Role(
+            ALLERGIC_ID,
+            ALLERGIC_COLOR,
+            false,
+            false,
+            Role.MoodType.REAL,
+            -1,
+            true
+    ));
+
     @Override
     public void onInitialize() {
 
@@ -129,6 +147,19 @@ public class StupidExpress implements ModInitializer {
         /// LOVERS
 
         Harpymodloader.setRoleMaximum(LOVERS, 0); // fake role for things
+
+        /// ALLERGIC
+
+        Harpymodloader.setRoleMaximum(ALLERGIC, 0); // fake role 2, courtesy of you!
+        AllowPlayerDeath.EVENT.register((player, identifier) -> {
+            AllergicComponent allergy = AllergicComponent.KEY.get(player);
+            if (allergy.armor > 0) {
+                player.level().playSound(player, player.getOnPos().above(1), TMMSounds.ITEM_PSYCHO_ARMOUR, SoundSource.MASTER, 5.0F, 1.0F);
+                allergy.armor--;
+                return false;
+            }
+            return true;
+        });
 
         // mod stuff
         ModItems.init();

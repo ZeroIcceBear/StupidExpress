@@ -4,6 +4,9 @@
   "package": "pro.fazeclan.river.stupid_express.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "modifier.allergic.AllergicEatMixin",
+    "modifier.allergic.AllergicGameFunctionsMixin",
+    "modifier.allergic.AllergicSelectionMixin",
     "modifier.lovers.LoversDeathMixin",
     "modifier.lovers.LoversSelectionMixin",
     "modifier.lovers.LoversWinConditionMixin",

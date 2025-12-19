@@ -34,7 +34,7 @@
   "death_reason.stupid_express.broken_heart": "a broken heart.",
 
   "hud.allergic.hint": "Allergic",
-  "hud.allergic.notification": "Your medical history highlights multiple allergies.",
+  "hud.allergic.notification": "Your medical history highlights multiple %s-related allergies.",
   "death_reason.stupid_express.allergies": "mysterious allergies.",
   "hud.allergic.doctor_heads_up": "Someone on the train may have allergic reactions- stay close!"
 }

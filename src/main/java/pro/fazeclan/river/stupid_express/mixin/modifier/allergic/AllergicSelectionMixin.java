@@ -32,9 +32,9 @@ public class AllergicSelectionMixin {
         if (HarpyModLoaderConfig.HANDLER.instance().disabled.contains(StupidExpress.ALLERGIC.identifier().toString())) {
             return;
         }
-        if (ThreadLocalRandom.current().nextInt(0, 3) != 0) {
-            return;
-        }
+//        if (ThreadLocalRandom.current().nextInt(0, 3) != 0) {
+//            return;
+//        }
 
 //        var innocentPlayers = players.stream().filter(gameWorldComponent::isInnocent).toList();
 
@@ -49,11 +49,13 @@ public class AllergicSelectionMixin {
         var allergicComponent = AllergicComponent.KEY.get(allergicPlayer);
 
         allergicComponent.setAllergic(allergicPlayer.getUUID());
+        allergicComponent.setAllergyType(ThreadLocalRandom.current().nextBoolean() ? "food" : "drink");
         allergicComponent.sync();
 
         allergicPlayer.sendSystemMessage(
                 Component.translatable(
-                        "hud.allergic.notification"
+                        "hud.allergic.notification",
+                        allergicComponent.getAllergyType()
                 ).withColor(StupidExpress.ALLERGIC_COLOR),
                 true
         );

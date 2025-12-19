@@ -22,6 +22,10 @@ public class AllergicComponent implements AutoSyncedComponent, ServerTickingComp
 
     @Getter
     @Setter
+    public String allergyType;
+
+    @Getter
+    @Setter
     private UUID allergic;
 
     @Getter
@@ -35,19 +39,20 @@ public class AllergicComponent implements AutoSyncedComponent, ServerTickingComp
     public void serverTick() {
         if (this.glowTicks > 0) {
             --this.glowTicks;
-
         }
         this.sync();
     }
 
-    public boolean giveArmor() {
+    public void giveArmor() {
         armor = 1;
         sync();
-        return true;
     }
 
     public void reset() {
         this.allergic = null;
+        this.allergyType = null;
+        this.glowTicks = 0;
+        this.armor = 0;
         sync();
     }
 
@@ -64,6 +69,7 @@ public class AllergicComponent implements AutoSyncedComponent, ServerTickingComp
         this.allergic = tag.contains("allergic") ? tag.getUUID("allergic") : null;
         this.armor = tag.contains("armor") ? tag.getInt("armor") : 0;
         this.glowTicks = tag.contains("glow_ticks") ? tag.getInt("glow_ticks") : 0;
+        this.allergyType = tag.contains("allergy_type") ? tag.getString("allergy_type") : "none";
     }
 
     @Override
@@ -71,5 +77,6 @@ public class AllergicComponent implements AutoSyncedComponent, ServerTickingComp
         tag.putUUID("allergic", this.allergic != null ? this.allergic : UUID.fromString("e1e89fbb-3beb-492a-b1be-46a4ce19c9d1"));
         tag.putInt("armor", this.armor);
         tag.putInt("glow_ticks", this.glowTicks);
+        tag.putString("allergy_type", this.allergyType != null ? this.allergyType : "none");
     }
 }

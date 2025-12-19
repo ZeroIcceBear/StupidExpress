@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "trainmurdermystery:old_fashioned",
+    "trainmurdermystery:mojito",
+    "trainmurdermystery:martini",
+    "trainmurdermystery:cosmopolitan",
+    "trainmurdermystery:champagne"
+  ]
+}
